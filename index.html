@@ -1,78 +1,145 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-tech="off">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Empreitei · App do Afiliado — Demonstração das telas</title>
+  <title>Empreitei · App do Afiliado — Product Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="bg" aria-hidden="true"><span class="glow glow-a"></span><span class="glow glow-b"></span><span class="grid"></span></div>
+  <div class="tech-bg" aria-hidden="true"><span class="glow glow-a"></span><span class="glow glow-b"></span><span class="scanline"></span></div>
 
-  <header class="hero" id="topo">
-    <div class="shell">
-      <div class="brand">
-        <span class="brand-mark" aria-hidden="true">E</span>
-        <span class="brand-text">
-          <b>Empreitei</b>
-          <span class="brand-tag">AFILIADO</span>
+  <!-- Header -->
+  <header class="hdr">
+    <div class="hdr-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg>
         </span>
+        <span class="brand-name">Empreitei</span>
+        <span class="brand-tag">Afiliado</span>
+      </a>
+
+      <div class="hdr-actions">
+        <label class="search" id="search-wrap">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input id="search" type="search" placeholder="Buscar tela, módulo ou fluxo…" aria-label="Buscar" />
+          <kbd>/</kbd>
+        </label>
+        <div class="view-toggle" role="group" aria-label="Visualização">
+          <button data-view="grid" class="active" title="Grade" aria-label="Grade">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          </button>
+          <button data-view="list" title="Lista" aria-label="Lista">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+          </button>
+        </div>
       </div>
-
-      <h1>App do Afiliado</h1>
-      <p class="lead">Demonstração completa das telas — capturadas do aplicativo em execução.</p>
-
-      <dl class="stats" id="stats"></dl>
     </div>
   </header>
 
-  <nav class="nav" id="nav" aria-label="Navegação por módulos">
-    <div class="shell nav-inner">
-      <div class="nav-tabs" id="modules" role="tablist"></div>
-      <label class="search">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-        <input id="search" type="search" placeholder="Buscar tela…" aria-label="Buscar tela" />
-      </label>
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <span class="eyebrow"><span class="pulse"></span>Demonstração visual · App do Afiliado</span>
+        <h1>Indique, acompanhe<br><em>e receba.</em></h1>
+        <p class="hero-sub">Explore os módulos, fluxos e interfaces que compõem a experiência do afiliado no Empreitei — telas reais do produto.</p>
+        <div class="telemetry" id="telemetry"></div>
+        <div class="hero-cta">
+          <a href="#modulos" class="cta-primary">Explorar as telas
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero-right" id="hero-stage" aria-hidden="true"></div>
     </div>
-  </nav>
+  </section>
 
-  <main id="gallery"></main>
+  <!-- Navegação por módulos -->
+  <div class="navbar" id="modulos">
+    <div class="navbar-inner">
+      <div class="navbar-top">
+        <div class="navbar-title">
+          <span class="mono-label">// Navegar pelos módulos</span>
+          <span id="counter" class="counter"></span>
+        </div>
+        <button id="tech-toggle" class="tech-toggle" title="Detalhes técnicos" aria-pressed="false">
+          <span class="tt-dot"></span> Detalhes técnicos
+        </button>
+      </div>
+      <div class="tabs-wrap">
+        <button class="tabs-arrow tabs-prev" aria-label="Anterior">‹</button>
+        <nav id="modules" class="tabs" aria-label="Módulos"></nav>
+        <button class="tabs-arrow tabs-next" aria-label="Próximo">›</button>
+      </div>
+    </div>
+  </div>
+
+  <main id="gallery" class="gallery is-grid"></main>
 
   <footer class="footer">
-    <div class="shell">
-      <span class="brand small"><span class="brand-mark" aria-hidden="true">E</span> Empreitei · App do Afiliado</span>
-      <span id="footer-stats"></span>
-      <a href="#topo" class="to-top">Voltar ao topo ↑</a>
+    <div class="footer-grid" aria-hidden="true"></div>
+    <div class="footer-inner">
+      <div class="brand small">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></span>
+        <span class="brand-name">Empreitei</span>
+      </div>
+      <div class="footer-meta">
+        <span>Demonstração visual do aplicativo do afiliado</span>
+        <span id="footer-stats"></span>
+      </div>
+      <a href="#top" class="to-top">Voltar ao topo ↑</a>
     </div>
   </footer>
 
-  <div id="viewer" class="viewer" hidden role="dialog" aria-modal="true" aria-label="Visualização ampliada da tela">
+  <!-- Modal / Visualizador -->
+  <div id="modal" class="viewer" hidden role="dialog" aria-modal="true" aria-label="Visualização da tela">
     <div class="viewer-overlay" data-close></div>
     <button class="viewer-close" data-close aria-label="Fechar visualização">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
 
     <div class="viewer-body">
-      <div class="viewer-stage">
+      <section class="viewer-preview">
         <button class="viewer-arrow prev" aria-label="Tela anterior">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
         </button>
-        <div class="viewer-device"><img id="viewer-img" alt="" /></div>
-        <button class="viewer-arrow next" aria-label="Próxima tela">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-        </button>
-      </div>
-
-      <div class="viewer-info">
-        <span class="viewer-module" id="viewer-module"></span>
-        <h2 id="viewer-title"></h2>
-        <p id="viewer-desc"></p>
-        <div class="viewer-meta">
-          <span class="chip mono" id="viewer-index"></span>
-          <span class="chip mono" id="viewer-route"></span>
+        <div class="viewer-device" id="viewer-device">
+          <div class="viewer-screen"><img id="modal-img" alt="" /></div>
+          <span class="viewer-hint" id="modal-hint">role para ver a tela completa ↓</span>
         </div>
-        <a class="viewer-full" id="viewer-full" target="_blank" rel="noopener" hidden>Ver tela inteira ↗</a>
-      </div>
+        <button class="viewer-arrow next" aria-label="Próxima tela">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+        <div class="viewer-thumbs" id="modal-thumbs" aria-hidden="true"></div>
+      </section>
+
+      <aside class="viewer-details">
+        <div class="vd-top">
+          <span class="vd-index mono" id="modal-index"></span>
+          <span class="vd-badges" id="modal-badges"></span>
+        </div>
+        <span class="vd-module" id="modal-module"></span>
+        <h2 class="viewer-title" id="modal-title"></h2>
+        <p class="vd-desc" id="modal-desc"></p>
+        <div class="vd-progress">
+          <span class="vd-progress-label mono" id="modal-progress"></span>
+          <span class="vd-progress-track"><i id="modal-progress-bar"></i></span>
+        </div>
+        <div class="vd-actions">
+          <button class="vd-btn nav-prev">Tela anterior</button>
+          <button class="vd-btn nav-next">Próxima tela</button>
+          <a class="vd-btn primary" id="modal-download" download>Baixar screenshot</a>
+        </div>
+        <details class="vd-tech" id="modal-tech-wrap">
+          <summary>Detalhes técnicos</summary>
+          <div class="vd-tech-body" id="modal-tech"></div>
+        </details>
+      </aside>
     </div>
   </div>
 
