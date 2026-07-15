@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Empreitei · App do Afiliado — Demonstração das telas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg" aria-hidden="true"><span class="glow glow-a"></span><span class="glow glow-b"></span><span class="grid"></span></div>
+
+  <header class="hero" id="topo">
+    <div class="shell">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">E</span>
+        <span class="brand-text">
+          <b>Empreitei</b>
+          <span class="brand-tag">AFILIADO</span>
+        </span>
+      </div>
+
+      <h1>App do Afiliado</h1>
+      <p class="lead">Demonstração completa das telas — capturadas do aplicativo em execução.</p>
+
+      <dl class="stats" id="stats"></dl>
+    </div>
+  </header>
+
+  <nav class="nav" id="nav" aria-label="Navegação por módulos">
+    <div class="shell nav-inner">
+      <div class="nav-tabs" id="modules" role="tablist"></div>
+      <label class="search">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="search" type="search" placeholder="Buscar tela…" aria-label="Buscar tela" />
+      </label>
+    </div>
+  </nav>
+
+  <main id="gallery"></main>
+
+  <footer class="footer">
+    <div class="shell">
+      <span class="brand small"><span class="brand-mark" aria-hidden="true">E</span> Empreitei · App do Afiliado</span>
+      <span id="footer-stats"></span>
+      <a href="#topo" class="to-top">Voltar ao topo ↑</a>
+    </div>
+  </footer>
+
+  <div id="viewer" class="viewer" hidden role="dialog" aria-modal="true" aria-label="Visualização ampliada da tela">
+    <div class="viewer-overlay" data-close></div>
+    <button class="viewer-close" data-close aria-label="Fechar visualização">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+
+    <div class="viewer-body">
+      <div class="viewer-stage">
+        <button class="viewer-arrow prev" aria-label="Tela anterior">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <div class="viewer-device"><img id="viewer-img" alt="" /></div>
+        <button class="viewer-arrow next" aria-label="Próxima tela">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </div>
+
+      <div class="viewer-info">
+        <span class="viewer-module" id="viewer-module"></span>
+        <h2 id="viewer-title"></h2>
+        <p id="viewer-desc"></p>
+        <div class="viewer-meta">
+          <span class="chip mono" id="viewer-index"></span>
+          <span class="chip mono" id="viewer-route"></span>
+        </div>
+        <a class="viewer-full" id="viewer-full" target="_blank" rel="noopener" hidden>Ver tela inteira ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
