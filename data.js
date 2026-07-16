@@ -829,7 +829,7 @@ window.__DEMO_DATA = {
     "captured": 42,
     "pending": 0,
     "captureErrors": 0,
-    "generatedAt": "2026-07-16T13:12:45.849Z",
+    "generatedAt": "2026-07-16T13:26:45.522Z",
     "updatedLabel": "julho de 2026"
   }
 };
